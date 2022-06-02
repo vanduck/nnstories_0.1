@@ -20,7 +20,8 @@ class _FirstScreenState extends State<FirstScreen> {
         child: ListView.builder(
           itemCount: listOfNews.length,
           itemBuilder: (context,index){
-            return NewsWidget( title: listOfNews[index].title, text: listOfNews[index].text, photoURL: listOfNews[index].photoURL, id: listOfNews[index].id.toString());
+            return NewsWidget(listOfNews[index]);
+              //NewsWidget( title: listOfNews[index].title, text: listOfNews[index].text, photoURL: listOfNews[index].photoURL, id: listOfNews[index].id.toString());
 
           }
         )

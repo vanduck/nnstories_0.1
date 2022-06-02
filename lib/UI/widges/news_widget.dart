@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
 class NewsWidget extends StatelessWidget {
-  final String title;
-  final String text;
-  final String photoURL;
-  final String id;
+  // final String title;
+  // final String text;
+  // final String photoURL;
+  // final String id;
 
-  const NewsWidget(
-      {Key? key,
-      this.title = "Заголовок",
-      this.text = """      текст
-      текст
-      новость 
-      супер новость
-      """,
-      this.photoURL = "",
-      this.id = "01nn"})
-      : super(key: key);
+  const NewsWidget(news,
+      {Key? key}): super(key: key);
+      // this.title = "Заголовок",
+      // this.text = """      текст
+      // текст
+      // новость
+      // супер новость
+      // """,
+      // this.photoURL = "",
+      // this.id = "01nn"
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class NewsWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            title,
+            news.title,
             style: TextStyle(
               fontSize: 20,
               color: Colors.black,
@@ -44,7 +45,7 @@ class NewsWidget extends StatelessWidget {
             child: Text("тут будет фото"),
           )),
           Text(
-            text,
+            news.text,
             style: TextStyle(
               fontSize: 13,
               color: Colors.grey,
