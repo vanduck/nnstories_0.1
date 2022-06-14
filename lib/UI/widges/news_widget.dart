@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:nnstories/UI/widges/news.dart';
 
 class NewsWidget extends StatelessWidget {
   // final String title;
   // final String text;
   // final String photoURL;
   // final String id;
+  final News news;
 
-  const NewsWidget(news,
-      {Key? key}): super(key: key);
+  const NewsWidget(
+      {Key? key,
+        required this.news
       // this.title = "Заголовок",
       // this.text = """      текст
       // текст
@@ -16,7 +19,7 @@ class NewsWidget extends StatelessWidget {
       // """,
       // this.photoURL = "",
       // this.id = "01nn"
-
+      }): super(key: key);
 
 
   @override
@@ -42,8 +45,9 @@ class NewsWidget extends StatelessWidget {
           ),
           Expanded(
               child: Card(
-            child: Text("тут будет фото"),
-          )),
+              child: Image.network(news.photoURL, scale: 0.1,),
+          )
+          ),
           Text(
             news.text,
             style: TextStyle(

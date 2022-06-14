@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-
+import 'package:nnstories/UI/pages/second_screen.dart';
 import '../widges/menu.dart';
 import 'first_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final int currentpage;
+  const HomeScreen({Key? key, this.currentpage = 0}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var _currentIndex = 0;
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -31,11 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
           unselectedItemColor: Colors.black26,
           selectedItemColor: Colors.deepPurpleAccent,
           items: items,
+            onTap: (value) {
+              setState(() {
+                _currentIndex = value;
+              });
+            }
         ),
       );
     }
     //если экран более 421 пикселя(компьютер планшет)
     else {
+      _currentIndex = widget.currentpage;
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
@@ -48,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   List<Widget> pages = [
     FirstScreen(),
-    // SecondScreen(),
+    SecondScreen(),
     // ThirdScreen(),
     // ForthScreen(),
   ];

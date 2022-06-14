@@ -22,7 +22,7 @@ class News {
   ];
 
   var photoURLs = [
-    '<img >src="https://panorama.pub/storage/images/8c/b9/93338876e5a5de6d3b28d56b1294/previews/11192-small.jpg">',
+    'https://static.tildacdn.com/tild3461-3865-4330-b533-626332313537/2563F7CC-26AA-4845-B.jpeg',
     'https://panorama.pub/storage/images/e9/0e/475c721a12b3848922a1bf9c3704/previews/11204-small.jpg',
     'https://panorama.pub/storage/images/e9/0e/475c721a12b3848922a1bf9c3704/previews/11204-small.jpg.webp',
     'https://panorama.pub/storage/images/cf/fa/96c2f0a1d5a84f9632450739823d/previews/11201-small.jpg.webp',

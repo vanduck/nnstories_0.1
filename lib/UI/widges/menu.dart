@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nnstories/UI/pages/second_screen.dart';
 import '../pages/first_screen.dart';
 import '../pages/home_screen.dart';
 
@@ -16,7 +17,7 @@ Widget buildMenu(BuildContext context, {width = 200}) {
           onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (BuildContext context) {
-              return HomeScreen();
+              return HomeScreen(currentpage: 0);
             }));
           },
         ),
@@ -25,7 +26,7 @@ Widget buildMenu(BuildContext context, {width = 200}) {
           onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (BuildContext context) {
-              return HomeScreen();
+              return HomeScreen(currentpage: 1);
             }));
           },
         ),
@@ -33,7 +34,7 @@ Widget buildMenu(BuildContext context, {width = 200}) {
           title: Text("Vladivostok"),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-              return HomeScreen();
+              return HomeScreen(currentpage: 2);
             }));
 
           },

@@ -19,9 +19,9 @@ class _FirstScreenState extends State<FirstScreen> {
         padding: EdgeInsets.all(20),
         child: ListView.builder(
           itemCount: listOfNews.length,
-          itemBuilder: (context,index){
-            return NewsWidget(listOfNews[index]);
-              //NewsWidget( title: listOfNews[index].title, text: listOfNews[index].text, photoURL: listOfNews[index].photoURL, id: listOfNews[index].id.toString());
+          itemBuilder: (context, index){
+            return NewsWidget(news: listOfNews[index]);
+            //NewsWidget( title: listOfNews[index].title, text: listOfNews[index].text, photoURL: listOfNews[index].photoURL, id: listOfNews[index].id.toString());
 
           }
         )
