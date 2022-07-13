@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:nnstories/UI/widges/news.dart';
+import 'package:nnstories/data_models/news_model.dart';
 
 class NewsWidget extends StatelessWidget {
   // final String title;
   // final String text;
   // final String photoURL;
   // final String id;
-  final News news;
+  final NewsModel newsModel;
 
   const NewsWidget(
       {Key? key,
-        required this.news
+        required this.newsModel
       // this.title = "Заголовок",
       // this.text = """      текст
       // текст
@@ -27,7 +28,7 @@ class NewsWidget extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
     return Container(
       width: (width > 420) ? width * 0.5 : width * 0.9,
-      height: 300,
+      height: 500,
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -37,7 +38,7 @@ class NewsWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            news.title,
+            newsModel.title,
             style: TextStyle(
               fontSize: 20,
               color: Colors.black,
@@ -45,11 +46,11 @@ class NewsWidget extends StatelessWidget {
           ),
           Expanded(
               child: Card(
-              child: Image.network(news.photoURL, scale: 0.1,),
+              child: Image.network(newsModel.photoURL, fit: BoxFit.fitWidth,),
           )
           ),
           Text(
-            news.text,
+            newsModel.text,
             style: TextStyle(
               fontSize: 13,
               color: Colors.grey,

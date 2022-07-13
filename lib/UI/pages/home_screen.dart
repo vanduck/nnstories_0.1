@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nnstories/UI/pages/login_page.dart';
 import 'package:nnstories/UI/pages/second_screen.dart';
 import '../widges/menu.dart';
 import 'first_screen.dart';
@@ -13,16 +14,44 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
+  int i = 0;
+  int didChangeDependenciesCount = 0;
+
+  @override
+  void initState(){
+    i++;
+  print('initState works $i times');
+    super.initState();
+  }
+@override
+  void didChangeDependencies(){
+  didChangeDependenciesCount++;
+  print('didChangeDependencies works $didChangeDependenciesCount times');
+    super.didChangeDependencies();
+}
+
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
+    // var i;
+
+    print ('build works');
     // если экран менее 421 пикселей разрешение то
     if (width < 421) {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
           title: Text("NNStories"),
+          actions: [
+            IconButton(onPressed: (){
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return HomeScreen(currentpage: 4);
+              }));
+            }, icon: Icon(Icons.login))
+          ],
         ),
+        
 
         body: pages[_currentIndex],
 
@@ -47,6 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
           title: Text("NNStories"),
+          actions: [
+            IconButton(onPressed: (){
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return HomeScreen(currentpage: 4);
+              }));
+            }, icon: Icon(Icons.login))
+          ],
         ),
         endDrawer: buildMenu(context, width: width * 0.3),
         body: pages[_currentIndex],
@@ -56,8 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
     FirstScreen(),
     SecondScreen(),
-    // ThirdScreen(),
-    // ForthScreen(),
+    SecondScreen(),
+    SecondScreen(),
+    LoginPage()
   ];
   List<BottomNavigationBarItem> items = [
     BottomNavigationBarItem(icon: Icon(Icons.amp_stories), label: 'Лента'),
